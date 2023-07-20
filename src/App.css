@@ -1,38 +1,148 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+
+
 .App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
+  display: flex;
   min-height: 100vh;
+  font-family: 'Poppins', sans-serif; 
+  color: #333333;
+}
+
+
+.menu-panel {
+  width: 220px;
+  background-color: #dc1259;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+  position: fixed; 
+  top: 0; 
+  left: 0; 
+  bottom: 0; 
+}
+
+/* Style for the "Guard UP" title and logo */
+.logo-user-container {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  margin-bottom: 20px; 
 }
 
-.App-link {
-  color: #61dafb;
+.logo {
+  margin-bottom: 10px; 
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+
+.logo img {
+  width: 100px; 
+  filter: brightness(0) invert(1); 
+}
+
+h1 {
+  text-align: center;
+  color: #ffffff;
+  font-family: 'Poppins', sans-serif; 
+  font-size: 36px;
+  font-weight: 700;
+  margin-top: 0; 
+}
+
+.hello-admin {
+  color: #ffffff; 
+  font-family: 'Poppins', sans-serif; 
+  font-size: 18px;
+  margin-top: 0; 
+}
+
+nav ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+nav li {
+  margin-bottom: 10px;
+}
+
+nav a {
+  display: block;
+  padding: 10px 20px;
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.2s ease-in-out;
+  border-radius: 25px; 
+}
+
+nav a:hover {
+  background-color: rgba(255, 255, 255, 0.1); 
+}
+
+.content {
+  flex: 1;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: right;
+  overflow-y: auto; 
+  margin-left: 260px;
+  margin-top: 40px;
+}
+
+
+h2 {
+  margin-bottom: 20px;
+  font-size: 24px;
+  color: #000000;
+}
+
+
+.custom-table {
+  width: 100%;
+  border-collapse: collapse;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.custom-table th,
+.custom-table td {
+  border: 1px solid #ddd;
+  padding: 12px;
+  text-align: left;
+}
+
+.custom-table th {
+  background-color: #f2f2f2;
+  font-weight: bold;
+}
+
+.custom-table tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.custom-table tr:hover {
+  background-color: #f2f2f2;
+}
+
+@media (max-width: 768px) {
+  .App {
+    flex-direction: column;
   }
-  to {
-    transform: rotate(360deg);
+
+  .menu-panel {
+    width: 100%;
+    margin-bottom: 20px;
+    position: static; 
+    flex: 0 0 auto; 
+  }
+
+  .content {
+    padding: 0;
+    margin-left: 0; 
   }
 }
