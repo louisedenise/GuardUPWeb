@@ -1,5 +1,5 @@
-import React from 'react';
-import { BrowserRouter as Router, Link, Routes, Route, Navigate } from 'react-router-dom';
+import React, { useState } from 'react';
+import { BrowserRouter as Router, Link, Routes, Route, Navigate, NavLink } from 'react-router-dom';
 import { initializeApp } from 'firebase/app';
 import { getFirestore } from 'firebase/firestore'; 
 import './App.css';
@@ -22,26 +22,49 @@ const app = initializeApp(firebaseConfig);
 const db = getFirestore(app); 
 
 function App() {
+  const [activeMenuItem, setActiveMenuItem] = useState('/users');
+
+  const handleMenuItemClick = (menuItem) => {
+    setActiveMenuItem(menuItem);
+  };
+
   return (
     <Router>
       <div className="App">
-
         <div className="menu-panel">
-        <div className="logo">
-          <img src={admin} alt="Logo" width="80" />
-        </div>
-        <p className="hello-admin">Hello, Admin!</p> 
+          <div className="logo">
+            <img src={admin} alt="Logo" width="80" />
+          </div>
+          <p className="hello-admin">Hello, Admin!</p> 
           <h1>Guard UP</h1>
           <nav>
             <ul>
               <li>
-                <Link to="/users">Users</Link>
+                <NavLink 
+                  to="/users" 
+                  activeClassName="active" // Add the activeClassName here
+                  onClick={() => handleMenuItemClick('/users')} // Add onClick to handle the active menu item
+                >
+                  Users
+                </NavLink>
               </li>
               <li>
-                <Link to="/entries">Entries</Link>
+                <NavLink 
+                  to="/entries" 
+                  activeClassName="active" // Add the activeClassName here
+                  onClick={() => handleMenuItemClick('/entries')} // Add onClick to handle the active menu item
+                >
+                  Logs
+                </NavLink>
               </li>
               <li>
-                <Link to="/reports">Reports</Link>
+                <NavLink 
+                  to="/reports" 
+                  activeClassName="active" // Add the activeClassName here
+                  onClick={() => handleMenuItemClick('/reports')} // Add onClick to handle the active menu item
+                >
+                  Reports
+                </NavLink>
               </li>
             </ul>
           </nav>
@@ -61,3 +84,10 @@ function App() {
 
 export { app };
 export default App;
+
+
+
+
+
+
+
